@@ -15,11 +15,11 @@ define(function(require) {
       var resourceSchema = this.get(resource);
       return resourceSchema.url + '?fields='+ _.keys(resourceSchema.fields).join(',');
     },
-    fetchResource: function(resource) {
+    fetchResource: _.memoize(function(resource) {
       return Q($.get(this.getUrlForResource(resource))).then(function(data) {
         return new Collection(data.elements);
       });
-    }
+    })
   });
 
 });
