@@ -1,0 +1,412 @@
+{
+  "courses": {
+    "url": "https://api.coursera.org/api/catalog.v1/courses",
+    "fields": {
+      "id": {
+        "type": "Int",
+        "description": "The Course Id."
+      },
+      "shortName": {
+        "type": "String",
+        "description": "The short name associated with the course."
+      },
+      "name": {
+        "type": "String",
+        "description": "The course name or title."
+      },
+      "language": {
+        "type": "String",
+        "description": "The language code for the course. (e.g. `en` means English.)"
+      },
+      "largeIcon": {
+        "type": "Option[String]",
+        "description": "A large image to represent the course."
+      },
+      "photo": {
+        "type": "Option[String]",
+        "description": "A course photo."
+      },
+      "previewLink": {
+        "type": "Option[String]",
+        "description": "If the course has enabled preview, this is the preview URL."
+      },
+      "shortDescription": {
+        "type": "Option[String]",
+        "description": "A short description of the course."
+      },
+      "smallIcon": {
+        "type": "Option[String]",
+        "description": "A small icon."
+      },
+      "smallIconHover": {
+        "type": "Option[String]",
+        "description": "Hovered icon."
+      },
+      "subtitleLanguagesCsv": {
+        "type": "String",
+        "description": "Translated languages."
+      },
+      "isTranslate": {
+        "type": "Boolean",
+        "description": "Whether the course is translated."
+      },
+      "universityLogo": {
+        "type": "Option[String]",
+        "description": "If there is a special university logo."
+      },
+      "universityLogoSt": {
+        "type": "Option[String]",
+        "description": "Signature track university logo."
+      },
+      "video": {
+        "type": "Option[String]",
+        "description": "The YouTube video code. e.g. <https://www.youtube.com/watch?v=CCmTQW7OebM>"
+      },
+      "videoId": {
+        "type": "Option[String]",
+        "description": "Synonym for video"
+      },
+      "aboutTheCourse": {
+        "type": "Option[String]",
+        "description": "HTML snippet describing the course."
+      },
+      "targetAudience": {
+        "type": "Option[Int]",
+        "description": "Description of the intended course audience. The target audiences are: 0 - Basic undergraduates, 1 - Advanced undergraduates or beginning graduates, 2 - Advanced graduates, and 3 - Other"
+      },
+      "faq": {
+        "type": "Option[String]",
+        "description": "HTML snippet answering frequently asked questions."
+      },
+      "courseSyllabus": {
+        "type": "Option[String]",
+        "description": "HTML snippet containing the course syllabus."
+      },
+      "courseFormat": {
+        "type": "Option[String]",
+        "description": "Format description."
+      },
+      "suggestedReadings": {
+        "type": "Option[String]",
+        "description": "HTML snippet containing suggested readings."
+      },
+      "instructor": {
+        "type": "Option[String]",
+        "description": "Instructor name(s) and title(s)."
+      },
+      "estimatedClassWorkload": {
+        "type": "Option[String]",
+        "description": "Description of the estimated workload for the course."
+      },
+      "aboutTheInstructor": {
+        "type": "Option[String]",
+        "description": "HTML snippet about the instructor."
+      },
+      "recommendedBackground": {
+        "type": "Option[String]",
+        "description": "HTML snippet describing recommended background."
+      }
+    },
+    "includes": {
+      "sessions": {
+        "description": "The sessions for a course."
+      },
+      "instructors": {
+        "description": "The instructors for a course."
+      },
+      "universities": {
+        "description": "The universities associated with a course."
+      },
+      "categories": {
+        "description": "The categories of the course."
+      }
+    }
+  },
+  "sessions": {
+    "url": "https://api.coursera.org/api/catalog.v1/sessions",
+    "fields": {
+      "id": {
+        "type": "Int",
+        "description": "Session Id"
+      },
+      "courseId": {
+        "type": "Int",
+        "description": "Course Id"
+      },
+      "homeLink": {
+        "type": "Option[String]",
+        "description": "Home link for the course."
+      },
+      "status": {
+        "type": "Int",
+        "description": "Session status."
+      },
+      "active": {
+        "type": "Boolean",
+        "description": "Whether the session is active."
+      },
+      "durationString": {
+        "type": "Option[String]",
+        "description": "Approximate (human readable) duration string. Typically of the format ‘XX weeks’."
+      },
+      "startDay": {
+        "type": "Option[Int]",
+        "description": "Optional start day."
+      },
+      "startMonth": {
+        "type": "Option[Int]",
+        "description": "Optional start month."
+      },
+      "startYear": {
+        "type": "Option[Int]",
+        "description": "Optional start year."
+      },
+      "name": {
+        "type": "Option[String]",
+        "description": "Session iteration name."
+      },
+      "signatureTrackCloseTime": {
+        "type": "Option[DateTime]",
+        "description": "Signature track information."
+      },
+      "signatureTrackOpenTime": {
+        "type": "Option[DateTime]",
+        "description": "Signature track information."
+      },
+      "signatureTrackPrice": {
+        "type": "Option[Double]",
+        "description": "Signature track information."
+      },
+      "signatureTrackRegularPrice": {
+        "type": "Option[Float]",
+        "description": "Signature track information."
+      },
+      "eligibleForCertificates": {
+        "type": "Option[Boolean]",
+        "description": "Certificates allowed."
+      },
+      "eligibleForSignatureTrack": {
+        "type": "Option[Boolean]",
+        "description": "Signature track available."
+      },
+      "certificateDescription": {
+        "type": "Option[String]",
+        "description": "Description on the course certificate."
+      },
+      "certificatesReady": {
+        "type": "Boolean",
+        "description": "Whether the certificates have been released."
+      }
+    },
+    "includes": {
+      "instructors": {
+        "description": "The instructors for a session."
+      },
+      "courses": {
+        "description": "The linked course for this session."
+      }
+    }
+  },
+  "instructors": {
+    "url": "https://api.coursera.org/api/catalog.v1/instructors",
+    "fields": {
+      "id": {
+        "type": "Int",
+        "description": "Instructor ID"
+      },
+      "photo": {
+        "type": "Option[String]",
+        "description": "photo URL"
+      },
+      "photo150": {
+        "type": "Option[String]",
+        "description": "photo URL 150x150px"
+      },
+      "bio": {
+        "type": "String",
+        "description": "Instructor Biogrophy"
+      },
+      "prefixName": {
+        "type": "Option[String]",
+        "description": "Prefix for the instructor’s name"
+      },
+      "firstName": {
+        "type": "Option[String]",
+        "description": "Instructor first name"
+      },
+      "middleName": {
+        "type": "Option[String]",
+        "description": "Instructor middle name"
+      },
+      "lastName": {
+        "type": "Option[String]",
+        "description": "Instructor last name"
+      },
+      "suffixName": {
+        "type": "Option[String]",
+        "description": "Suffix for the instructor name"
+      },
+      "fullName": {
+        "type": "Option[String]",
+        "description": "Instructor full name"
+      },
+      "title": {
+        "type": "Option[String]",
+        "description": "Instructor title"
+      },
+      "department": {
+        "type": "Option[String]",
+        "description": "Instructor department"
+      },
+      "website": {
+        "type": "Option[String]",
+        "description": "Instructor’s personal website"
+      },
+      "websiteTwitter": {
+        "type": "Option[String]",
+        "description": "Instructor’s twitter handle."
+      },
+      "websiteFacebook": {
+        "type": "Option[String]",
+        "description": "Instructor’s facebook page."
+      },
+      "websiteLinkedin": {
+        "type": "Option[String]",
+        "description": "Instructor’s LinkedIn profile."
+      },
+      "websiteGplus": {
+        "type": "Option[String]",
+        "description": "Instructor’s Google+ Website."
+      },
+      "shortName": {
+        "type": "Option[String]",
+        "description": "Instructor’s short name."
+      }
+    },
+    "includes": {
+      "universities": {
+        "description": "The universities an instructor is associated with."
+      },
+      "courses": {
+        "description": "The courses an instructor teaches."
+      },
+      "sessions": {
+        "description": "The sessions an instructor teaches."
+      }
+    }
+  },
+  "universities": {
+    "url": "https://api.coursera.org/api/catalog.v1/universities",
+    "fields": {
+      "id": {
+        "type": "Int",
+        "description": "The University Id"
+      },
+      "name": {
+        "type": "String",
+        "description": "The university’s name"
+      },
+      "shortName": {
+        "type": "String",
+        "description": "The short name associated with the university."
+      },
+      "description": {
+        "type": "Option[String]",
+        "description": "The university’s description."
+      },
+      "banner": {
+        "type": "Option[String]",
+        "description": "The URL to a background banner image"
+      },
+      "homeLink": {
+        "type": "Option[String]",
+        "description": "Link to the university’s home page."
+      },
+      "location": {
+        "type": "Option[String]",
+        "description": "Human-readable description of the partner’s location."
+      },
+      "locationCity": {
+        "type": "Option[String]",
+        "description": "University’s city."
+      },
+      "locationState": {
+        "type": "Option[String]",
+        "description": "University’s state."
+      },
+      "locationCountry": {
+        "type": "Option[String]",
+        "description": "University’s country."
+      },
+      "locationLat": {
+        "type": "Option[Double]",
+        "description": "University’s latitude."
+      },
+      "locationLng": {
+        "type": "Option[Double]",
+        "description": "University’s longitude."
+      },
+      "classLogo": {
+        "type": "Option[String]",
+        "description": "URL to the logo used inside courses."
+      },
+      "website": {
+        "type": "Option[String]",
+        "description": "University’s website."
+      },
+      "websiteTwitter": {
+        "type": "Option[String]",
+        "description": "University’s offical twitter handle."
+      },
+      "websiteFacebook": {
+        "type": "Option[String]",
+        "description": "University’s facebook page."
+      },
+      "websiteYoutube": {
+        "type": "Option[String]",
+        "description": "University’s youtube channel."
+      },
+      "logo": {
+        "type": "Option[String]",
+        "description": "University’s Logo"
+      },
+      "squareLogo": {
+        "type": "Option[String]",
+        "description": "University’s Logo (Square)"
+      },
+      "landingPageBanner": {
+        "type": "Option[String]",
+        "description": "High-resolution banner for use on the Coursera home landing page."
+      }
+    },
+    "includes": {
+      "courses": {
+        "description": "The courses an instructor teaches."
+      },
+      "instructors": {
+        "description": "The instructors associated with a university."
+      }
+    }
+  },
+  "categories": {
+    "url": "https://api.coursera.org/api/catalog.v1/categories",
+    "fields": {
+      "id": {
+        "type": "Int",
+        "description": "The category’s id"
+      },
+      "name": {
+        "type": "String",
+        "description": "The category’s name."
+      },
+      "shortName": {
+        "type": "String",
+        "description": "The short name associated with the category."
+      },
+      "description": {
+        "type": "Option[String]",
+        "description": "The category’s description."
+      }
+    }
+  }
+}

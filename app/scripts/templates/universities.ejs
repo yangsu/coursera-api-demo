@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+  <% data.collection.each(function(model, i) { %>
+  <div class="col-xs-4 university">
+    <img src=<%= model.get('squareLogo') %> alt="..." class="university-image">
+    <h2><%= model.get('name') %></h2>
+    <p><%= model.get('description') %></p>
+    <% if (i%3 == 0) { %>
+      <div class="clearfix visible-xs-block"></div>
+    <% } %>
+  </div>
+  <% }) %>
+  </div>
+</div>

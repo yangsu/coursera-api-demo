@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+  <% data.collection.each(function(model, i) { %>
+  <div class="col-xs-4 category">
+    <h2><%= model.get('name') %></h2>
+    <% if (i%3 == 0) { %>
+      <div class="clearfix visible-xs-block"></div>
+    <% } %>
+  </div>
+  <% }) %>
+  </div>
+</div>

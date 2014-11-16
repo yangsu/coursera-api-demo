@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+  <% data.collection.chain().slice(0, 50).each(function(model, i) { %>
+  <div class="col-xs-4 course">
+    <h2><%= model.get('name') %></h2>
+    <p><%= model.get('shortDescription') %></p>
+    <img class="course-image" src=<%= model.get('photo') %> >
+    <% if (i%3 == 0) { %>
+      <div class="clearfix visible-xs-block"></div>
+    <% } %>
+
+  </div>
+  <% }) %>
+  </div>
+</div>
