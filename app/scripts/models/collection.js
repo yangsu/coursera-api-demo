@@ -9,7 +9,10 @@ define(function(require) {
     search: function(term) {
       if (term) {
         return new Collection(this.filter(function(model) {
-          return JSON.stringify(model.toJSON()).toLowerCase().indexOf(term) >= 0;
+          var text = JSON.stringify(model.toJSON()).toLowerCase();
+          return _.all(term.split(' '), function(t) {
+            return text.indexOf(t) >= 0;
+          });
         }));
       } else {
         return this;
